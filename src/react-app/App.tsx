@@ -7,6 +7,7 @@ import {
   defineConfig,
 } from "@chakra-ui/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Nav from "./features/Nav/Nav";
 import HomePage from "./pages/HomePage";
 import AgentsPage from "./pages/AgentsPage";
 
@@ -21,8 +22,13 @@ const config = defineConfig({
 const system = createSystem(defaultConfig, config);
 
 const router = createBrowserRouter([
-  { path: "/", element: <HomePage /> },
-  { path: "/agents", element: <AgentsPage /> },
+  {
+    element: <Nav />,
+    children: [
+      { path: "/", element: <HomePage /> },
+      { path: "/agents", element: <AgentsPage /> },
+    ],
+  },
 ]);
 
 function App() {
