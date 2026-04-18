@@ -1,14 +1,14 @@
-// src/App.tsx
-
 import "./App.css";
 
 import {
-  Box,
   ChakraProvider,
   createSystem,
   defaultConfig,
   defineConfig,
 } from "@chakra-ui/react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import AgentsPage from "./pages/AgentsPage";
 
 const config = defineConfig({
   theme: {
@@ -20,10 +20,15 @@ const config = defineConfig({
 
 const system = createSystem(defaultConfig, config);
 
+const router = createBrowserRouter([
+  { path: "/", element: <HomePage /> },
+  { path: "/agents", element: <AgentsPage /> },
+]);
+
 function App() {
   return (
     <ChakraProvider value={system}>
-      <Box>Welcome to Coach K 808</Box>
+      <RouterProvider router={router} />
     </ChakraProvider>
   );
 }
