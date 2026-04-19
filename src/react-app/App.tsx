@@ -1,31 +1,19 @@
 import "./App.css";
 
-import {
-  ChakraProvider,
-  createSystem,
-  defaultConfig,
-  defineConfig,
-} from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Nav from "./features/Nav/Nav";
 import HomePage from "./pages/HomePage";
 import AgentsPage from "./pages/AgentsPage";
-
-const config = defineConfig({
-  theme: {
-    tokens: {
-      colors: {},
-    },
-  },
-});
-
-const system = createSystem(defaultConfig, config);
+import SyncsPage from "./pages/SyncsPage";
+import { theme } from "./ui/theme";
 
 const router = createBrowserRouter([
   {
     element: <Nav />,
     children: [
       { path: "/", element: <HomePage /> },
+      { path: "/syncs", element: <SyncsPage /> },
       { path: "/agents", element: <AgentsPage /> },
     ],
   },
@@ -33,7 +21,7 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <ChakraProvider value={system}>
+    <ChakraProvider value={theme}>
       <RouterProvider router={router} />
     </ChakraProvider>
   );

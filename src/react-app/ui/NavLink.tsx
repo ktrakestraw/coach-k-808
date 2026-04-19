@@ -8,18 +8,22 @@ interface Props {
 
 export default function NavLink({ label, to }: Props) {
   return (
-    <RouterNavLink to={to} style={{ textDecoration: "none" }}>
+    <RouterNavLink
+      to={to}
+      style={{ textDecoration: "none", display: "flex", flexGrow: 1 }}
+    >
       {({ isActive }) => (
         <Box
-          px={2}
-          py={2}
+          p={2}
+          flexGrow={1}
+          w={"234px"}
           borderRadius="md"
           bg={isActive ? "whiteAlpha.200" : "transparent"}
-          _hover={{ bg: "whiteAlpha.100" }}
+          _hover={{ bg: "whiteAlpha.50" }}
           cursor="pointer"
           fontSize="sm"
-          fontWeight="medium"
-          color={isActive ? "yellow" : "white"}
+          fontWeight={isActive ? "medium" : "normal"}
+          color={isActive ? "white" : "gray.200"}
         >
           {label}
         </Box>
