@@ -1,7 +1,6 @@
-import { Box, Button, Flex, Text } from "@chakra-ui/react";
+import { Button, Flex, Text } from "@chakra-ui/react";
 import Page from "../features/navigation/Page";
 import { SYNCS } from "../features/sync/data";
-import StatusChip from "../ui/StatusChip";
 import { Link, useParams } from "react-router-dom";
 import { Sync } from "../features/sync/types";
 
