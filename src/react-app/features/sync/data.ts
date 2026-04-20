@@ -1,0 +1,60 @@
+import type { Sync } from "./types";
+
+export const SYNCS: Sync[] = [
+  {
+    id: "1",
+    status: "HEALTHY",
+    model: "Users",
+    destination: "Google Sheets",
+    lastRun: "12/13/22 at 3:15 PM",
+    createdAt: "12/13/22",
+  },
+  {
+    id: "2",
+    status: "HEALTHY",
+    model: "All Customers",
+    destination: "Amplitude",
+    lastRun: "12/13/22 at 11:01 AM",
+    createdAt: "12/13/22",
+  },
+  {
+    id: "3",
+    status: "HEALTHY",
+    model: "All Customers",
+    destination: "Amplitude",
+    lastRun: "12/13/22 at 10:19 AM",
+    createdAt: "12/13/22",
+  },
+  {
+    id: "4",
+    status: "WARNING",
+    model: "Users",
+    destination: "Braze",
+    lastRun: "12/12/22 at 4:52 PM",
+    createdAt: "12/12/22",
+  },
+  {
+    id: "5",
+    status: "WARNING",
+    model: "Audience Test",
+    destination: "Salesforce",
+    lastRun: "12/12/22 at 1:28 PM",
+    createdAt: "12/12/22",
+  },
+  {
+    id: "6",
+    status: "HEALTHY",
+    model: "Event",
+    destination: "Salesforce",
+    lastRun: "09/04/22 at 7:49 PM",
+    createdAt: "09/04/22",
+  },
+  {
+    id: "7",
+    status: "HEALTHY",
+    model: "Users",
+    destination: "Salesforce",
+    lastRun: "12/08/22 at 1:04 PM",
+    createdAt: "09/04/22",
+  },
+];
