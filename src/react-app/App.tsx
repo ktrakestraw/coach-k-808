@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage";
 import AgentsPage from "./pages/AgentsPage";
 import SyncsPage from "./pages/SyncsPage";
 import { theme } from "./ui/theme";
+import SyncPage from "./pages/SyncPage";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
       { path: "/", element: <HomePage /> },
       { path: "/syncs", element: <SyncsPage /> },
       { path: "/agents", element: <AgentsPage /> },
+      { path: "/syncs/:syncId", element: <SyncPage /> },
     ],
   },
 ]);
