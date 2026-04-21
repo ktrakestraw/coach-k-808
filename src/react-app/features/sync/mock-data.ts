@@ -1,0 +1,200 @@
+import type { Sync } from "./types";
+
+export const SYNCS: Sync[] = [
+  {
+    id: "48271",
+    status: "HEALTHY",
+    model: "Users",
+    destination: "Google Sheets",
+    lastRun: "12/13/22 at 3:15 PM",
+    createdAt: "12/13/22",
+    runs: [
+      {
+        status: "HEALTHY" as const,
+        duration: 19,
+        started: "12/13/22",
+        rows: 18000,
+      },
+      {
+        status: "HEALTHY" as const,
+        duration: 22,
+        started: "12/12/22",
+        rows: 17850,
+      },
+      {
+        status: "WARNING" as const,
+        duration: 45,
+        started: "12/11/22",
+        rows: 17200,
+      },
+    ],
+  },
+  {
+    id: "93615",
+    status: "HEALTHY",
+    model: "All Customers",
+    destination: "Amplitude",
+    lastRun: "12/13/22 at 11:01 AM",
+    createdAt: "12/13/22",
+    runs: [
+      {
+        status: "HEALTHY" as const,
+        duration: 19,
+        started: "12/13/22",
+        rows: 18000,
+      },
+      {
+        status: "HEALTHY" as const,
+        duration: 17,
+        started: "12/12/22",
+        rows: 17940,
+      },
+      {
+        status: "HEALTHY" as const,
+        duration: 21,
+        started: "12/11/22",
+        rows: 17880,
+      },
+    ],
+  },
+  {
+    id: "57402",
+    status: "HEALTHY",
+    model: "All Customers",
+    destination: "Amplitude",
+    lastRun: "12/13/22 at 10:19 AM",
+    createdAt: "12/13/22",
+    runs: [
+      {
+        status: "HEALTHY" as const,
+        duration: 19,
+        started: "12/13/22",
+        rows: 18000,
+      },
+      {
+        status: "ERROR" as const,
+        duration: 8,
+        started: "12/12/22",
+        rows: 0,
+      },
+      {
+        status: "HEALTHY" as const,
+        duration: 20,
+        started: "12/11/22",
+        rows: 17500,
+      },
+    ],
+  },
+  {
+    id: "82039",
+    status: "WARNING",
+    model: "Users",
+    destination: "Braze",
+    lastRun: "12/12/22 at 4:52 PM",
+    createdAt: "12/12/22",
+    runs: [
+      {
+        status: "WARNING" as const,
+        duration: 61,
+        started: "12/12/22",
+        rows: 15300,
+      },
+      {
+        status: "HEALTHY" as const,
+        duration: 19,
+        started: "12/11/22",
+        rows: 18000,
+      },
+      {
+        status: "HEALTHY" as const,
+        duration: 24,
+        started: "12/10/22",
+        rows: 17600,
+      },
+    ],
+  },
+  {
+    id: "34718",
+    status: "WARNING",
+    model: "Audience Test",
+    destination: "Salesforce",
+    lastRun: "12/12/22 at 1:28 PM",
+    createdAt: "12/12/22",
+    runs: [
+      {
+        status: "WARNING" as const,
+        duration: 53,
+        started: "12/12/22",
+        rows: 9400,
+      },
+      {
+        status: "ERROR" as const,
+        duration: 12,
+        started: "12/11/22",
+        rows: 0,
+      },
+      {
+        status: "HEALTHY" as const,
+        duration: 28,
+        started: "12/10/22",
+        rows: 10200,
+      },
+    ],
+  },
+  {
+    id: "61853",
+    status: "HEALTHY",
+    model: "Event",
+    destination: "Salesforce",
+    lastRun: "09/04/22 at 7:49 PM",
+    createdAt: "09/04/22",
+    runs: [
+      {
+        status: "HEALTHY" as const,
+        duration: 19,
+        started: "12/13/22",
+        rows: 18000,
+      },
+      {
+        status: "HEALTHY" as const,
+        duration: 16,
+        started: "12/12/22",
+        rows: 18100,
+      },
+      {
+        status: "HEALTHY" as const,
+        duration: 18,
+        started: "12/11/22",
+        rows: 17950,
+      },
+    ],
+  },
+  {
+    id: "29547",
+    status: "HEALTHY",
+    model: "Users",
+    destination: "Salesforce",
+    lastRun: "12/08/22 at 1:04 PM",
+    createdAt: "09/04/22",
+    runs: [
+      {
+        status: "HEALTHY" as const,
+        duration: 19,
+        started: "12/13/22",
+        rows: 18000,
+      },
+      {
+        status: "WARNING" as const,
+        duration: 47,
+        started: "12/12/22",
+        rows: 16700,
+      },
+      {
+        status: "HEALTHY" as const,
+        duration: 21,
+        started: "12/11/22",
+        rows: 17800,
+      },
+    ],
+  },
+];
