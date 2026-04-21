@@ -6,10 +6,11 @@ const STYLES = {
   HEALTHY: { borderColor: "green.400", color: "green.600", bg: "green.50" },
   WARNING: { borderColor: "orange.400", color: "orange.500", bg: "orange.50" },
   ERROR: { borderColor: "red.400", color: "red.600", bg: "red.50" },
+  DEFAULT: { borderColor: "gray.400", color: "blue.400", bg: "transparent" },
 };
 
-export default function StatusChip({ status }: { status: Status }) {
-  const { borderColor, color, bg } = STYLES[status];
+export default function Chip(props: { status?: Status; text: string }) {
+  const { borderColor, color, bg } = STYLES[props.status ?? "DEFAULT"];
   return (
     <Box
       display="inline-block"
@@ -23,7 +24,7 @@ export default function StatusChip({ status }: { status: Status }) {
       fontSize="xs"
       fontWeight="semibold"
     >
-      {status}
+      {props.text}
     </Box>
   );
 }

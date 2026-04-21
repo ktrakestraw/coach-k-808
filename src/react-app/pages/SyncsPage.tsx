@@ -1,17 +1,17 @@
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
-import Page from "../features/navigation/Page";
 import { SYNCS } from "../features/sync/data";
-import StatusChip from "../ui/StatusChip";
+import PageContent from "../ui/content/PageContent";
+import Chip from "../ui/feedback/Chip";
 import { Link } from "react-router-dom";
 
 export default function SyncsPage() {
   return (
-    <Page title="Syncs">
+    <PageContent title="Syncs">
       <Flex gap={8} direction="column">
         <Header />
         <Table />
       </Flex>
-    </Page>
+    </PageContent>
   );
 }
 
@@ -35,7 +35,7 @@ export function Table() {
         <Box flex={2}>Model</Box>
         <Box flex={2}>Destination</Box>
         <Box flex={2}>Last Run</Box>
-        <Box flex={2}>Created At</Box>
+        <Box flex={1}>Created At</Box>
       </Flex>
       {SYNCS.map((sync) => (
         <Link
@@ -46,12 +46,12 @@ export function Table() {
           <Flex key={sync.id} p={4} borderTopWidth="1px" color="black">
             <Box flex={1}>{sync.id}</Box>
             <Box flex={2}>
-              <StatusChip status={sync.status} />
+              <Chip status={sync.status} text={sync.status} />
             </Box>
             <Box flex={2}>{sync.model}</Box>
             <Box flex={2}>{sync.destination}</Box>
             <Box flex={2}>{sync.lastRun}</Box>
-            <Box flex={2}>{sync.createdAt}</Box>
+            <Box flex={1}>{sync.createdAt}</Box>
           </Flex>
         </Link>
       ))}
