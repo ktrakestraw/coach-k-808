@@ -1,5 +1,5 @@
-import { Box } from "@chakra-ui/react";
+import PageContent from "../ui/content/PageContent";
 
 export default function AgentsPage() {
-  return <Box>Agents</Box>;
+  return <PageContent title="Agents">TODO</PageContent>;
 }

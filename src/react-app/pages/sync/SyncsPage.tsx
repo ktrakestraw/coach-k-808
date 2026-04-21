@@ -1,21 +1,21 @@
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
-import PageContent from "../ui/content/PageContent";
-import { SYNCS } from "../features/sync/mock-data";
-import Chip from "../ui/feedback/Chip";
+import PageContent from "../../ui/content/PageContent";
+import { SYNCS } from "../../features/sync/mock-data";
+import Chip from "../../ui/feedback/Chip";
 import { Link } from "react-router-dom";
 
 export default function SyncsPage() {
   return (
     <PageContent title="Syncs">
       <Flex gap={8} direction="column">
-        <Header />
-        <Table />
+        <ContentHeader />
+        <Content />
       </Flex>
     </PageContent>
   );
 }
 
-function Header() {
+function ContentHeader() {
   return (
     <Flex gap={2} justify="space-between" alignItems="center">
       <Text fontSize="2xl">Syncs</Text>
@@ -26,7 +26,7 @@ function Header() {
   );
 }
 
-export function Table() {
+function Content() {
   return (
     <Box borderWidth="1px" borderRadius="lg" overflow="hidden">
       <Flex bg="gray.100" p={4} fontWeight="bold">

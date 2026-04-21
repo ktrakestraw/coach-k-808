@@ -1,9 +1,6 @@
 import { Flex, Text } from "@chakra-ui/react";
 
-export default function LabeledContent({
-  label,
-  children,
-}: {
+export default function LabeledContent(props: {
   label: string;
   children: React.ReactNode;
 }) {
@@ -15,9 +12,9 @@ export default function LabeledContent({
         textTransform={"uppercase"}
         color="gray.500"
       >
-        {label}
+        {props.label}
       </Text>
-      {children}
+      {props.children}
     </Flex>
   );
 }
