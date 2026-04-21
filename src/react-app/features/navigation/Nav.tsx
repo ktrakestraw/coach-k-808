@@ -1,6 +1,6 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { Link, Outlet } from "react-router-dom";
-import NavLink from "../../ui/NavLink";
+import NavLink from "../../ui/navigation/NavLink";
 
 const NAV_ITEMS = [
   { label: "Syncs", to: "/syncs" },
@@ -15,8 +15,8 @@ export default function Nav() {
         w="250px"
         flexShrink={0}
         bgGradient="to-b"
-        gradientFrom="teal.dark"
-        gradientTo="green.900"
+        gradientFrom="sidebar.top"
+        gradientTo="sidebar.bottom"
         color="white"
         py={4}
       >
@@ -24,11 +24,11 @@ export default function Nav() {
           <Link to="/">
             <Box px={4}>
               <Text fontWeight="bold" fontSize="sm" color="white">
-                COACH K 808
+                @CoachK808
               </Text>
             </Box>
           </Link>
-          <Flex direction="column" gap={1} px={2}>
+          <Flex direction="column" gap={0.5} px={2}>
             {NAV_ITEMS.map(({ label, to }) => (
               <NavLink key={to} label={label} to={to} />
             ))}

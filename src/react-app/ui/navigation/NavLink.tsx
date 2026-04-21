@@ -1,20 +1,16 @@
 import { Box } from "@chakra-ui/react";
 import { NavLink as RouterNavLink } from "react-router-dom";
 
-interface Props {
-  label: string;
-  to: string;
-}
-
-export default function NavLink({ label, to }: Props) {
+export default function NavLink(props: { label: string; to: string }) {
   return (
     <RouterNavLink
-      to={to}
+      to={props.to}
       style={{ textDecoration: "none", display: "flex", flexGrow: 1 }}
     >
       {({ isActive }) => (
         <Box
-          p={2}
+          py={3}
+          px={4}
           flexGrow={1}
           w={"234px"}
           borderRadius="md"
@@ -25,7 +21,7 @@ export default function NavLink({ label, to }: Props) {
           fontWeight={isActive ? "medium" : "normal"}
           color={isActive ? "white" : "gray.200"}
         >
-          {label}
+          {props.label}
         </Box>
       )}
     </RouterNavLink>
