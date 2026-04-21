@@ -4,6 +4,7 @@ export const SYNCS: Sync[] = [
   {
     id: "48271",
     status: "HEALTHY",
+    schedule: "daily",
     model: "Users",
     destination: "Google Sheets",
     lastRun: "12/13/22 at 3:15 PM",
@@ -32,6 +33,7 @@ export const SYNCS: Sync[] = [
   {
     id: "93615",
     status: "HEALTHY",
+    schedule: "hourly",
     model: "All Customers",
     destination: "Amplitude",
     lastRun: "12/13/22 at 11:01 AM",
@@ -60,6 +62,7 @@ export const SYNCS: Sync[] = [
   {
     id: "57402",
     status: "HEALTHY",
+    schedule: "weekly",
     model: "All Customers",
     destination: "Amplitude",
     lastRun: "12/13/22 at 10:19 AM",
@@ -88,6 +91,7 @@ export const SYNCS: Sync[] = [
   {
     id: "82039",
     status: "WARNING",
+    schedule: "daily",
     model: "Users",
     destination: "Braze",
     lastRun: "12/12/22 at 4:52 PM",
@@ -116,6 +120,7 @@ export const SYNCS: Sync[] = [
   {
     id: "34718",
     status: "WARNING",
+    schedule: "manual",
     model: "Audience Test",
     destination: "Salesforce",
     lastRun: "12/12/22 at 1:28 PM",
@@ -144,6 +149,7 @@ export const SYNCS: Sync[] = [
   {
     id: "61853",
     status: "HEALTHY",
+    schedule: "hourly",
     model: "Event",
     destination: "Salesforce",
     lastRun: "09/04/22 at 7:49 PM",
@@ -172,6 +178,7 @@ export const SYNCS: Sync[] = [
   {
     id: "29547",
     status: "HEALTHY",
+    schedule: "weekly",
     model: "Users",
     destination: "Salesforce",
     lastRun: "12/08/22 at 1:04 PM",

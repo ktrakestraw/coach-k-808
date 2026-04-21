@@ -79,7 +79,7 @@ export function Content(props: { sync: Sync }) {
     <Flex gap={8} direction="column">
       <DividedContent>
         <LabeledContent label="Schedule">
-          <Text>Manual</Text>
+          <Text textTransform={"capitalize"}>{props.sync.schedule}</Text>
         </LabeledContent>
         <LabeledContent label="Sync ID">
           <Text>{props.sync.id}</Text>

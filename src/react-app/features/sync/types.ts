@@ -5,6 +5,7 @@ export type Sync = {
   destination: string;
   lastRun: string;
   createdAt: string;
+  schedule: "manual" | "hourly" | "daily" | "weekly";
   runs: {
     status: "HEALTHY" | "WARNING" | "ERROR";
     started: string;

@@ -13,7 +13,7 @@ export default function SchedulePage() {
 }
 
 export function Schedule(props: { sync: Sync }) {
-  const [value, setValue] = useState("manual");
+  const [value, setValue] = useState<string>(props.sync.schedule);
 
   return (
     <RadioCard.Root
