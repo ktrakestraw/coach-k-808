@@ -28,8 +28,41 @@ const router = createBrowserRouter([
       {
         path: "/agents",
         lazy: async () => ({
-          Component: (await import("./pages/AgentsPage")).default,
+          Component: (await import("./pages/agents/AgentsPage")).default,
         }),
+      },
+      {
+        path: "/agents/:agentId",
+        lazy: async () => ({
+          Component: (await import("./pages/agents/AgentPage")).default,
+        }),
+        children: [
+          {
+            index: true,
+            loader: ({ params }) =>
+              redirect(`/agents/${params.agentId}/strategies`),
+          },
+          {
+            path: "strategies",
+            lazy: async () => ({
+              Component: (await import("./pages/agents/StrategiesPage"))
+                .default,
+            }),
+          },
+          {
+            path: "guardrails",
+            lazy: async () => ({
+              Component: (await import("./pages/agents/GuardrailsPage"))
+                .default,
+            }),
+          },
+          {
+            path: "overview",
+            lazy: async () => ({
+              Component: (await import("./pages/agents/AgentOverview")).default,
+            }),
+          },
+        ],
       },
       {
         path: "/syncs/:syncId",
