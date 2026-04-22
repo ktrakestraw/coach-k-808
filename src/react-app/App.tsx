@@ -57,9 +57,9 @@ const router = createBrowserRouter([
             }),
           },
           {
-            path: "overview",
+            path: "flow",
             lazy: async () => ({
-              Component: (await import("./pages/agents/AgentOverview")).default,
+              Component: (await import("./pages/agents/FlowChartPage")).default,
             }),
           },
         ],

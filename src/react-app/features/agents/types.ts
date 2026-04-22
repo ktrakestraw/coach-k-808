@@ -11,6 +11,7 @@ export type Agent = {
   };
   createdAt: string;
   strategies: {
+    id: string;
     name: string;
     percentage: number;
     success: number;

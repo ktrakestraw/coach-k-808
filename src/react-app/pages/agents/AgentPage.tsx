@@ -20,7 +20,7 @@ export default function AgentPage() {
   return (
     <PageContent title={<Title agent={agent} />}>
       {agent ? (
-        <Flex gap={12} direction="column">
+        <Flex gap={12} h={"100%"} direction="column">
           <ContentHeader agent={agent} />
           <Content agent={agent} />
         </Flex>
@@ -93,12 +93,12 @@ export function Content(props: { agent: Agent }) {
 
   const splitPaths = pathname.split("/");
   const lastPath = splitPaths[splitPaths.length - 1];
-  const activeTab = ["strategies", "guardrails", "overview"].includes(lastPath)
+  const activeTab = ["strategies", "guardrails", "flow"].includes(lastPath)
     ? lastPath
     : "strategies";
 
   return (
-    <Flex gap={8} direction="column">
+    <Flex gap={8} direction="column" h={"100%"}>
       <DividedContent>
         <LabeledContent label="Agent ID">
           <Text>{props.agent.id}</Text>
@@ -142,9 +142,9 @@ export function Content(props: { agent: Agent }) {
             focusRing="none"
             border="none"
             _hover={{ bg: "gray.100" }}
-            value="overview"
+            value="flow"
           >
-            Overview
+            Flow Chart
           </Tabs.Trigger>
         </Tabs.List>
       </Tabs.Root>
