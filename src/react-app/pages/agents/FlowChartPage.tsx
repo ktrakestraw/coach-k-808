@@ -27,7 +27,7 @@ export default function FlowChartPage() {
 
   if (!agent)
     return (
-      <ErrorBanner message={"Unable to display flow chart for this agent"} />
+      <ErrorBanner message="Unable to display flow chart for this agent" />
     );
   return <FlowChart agent={agent} />;
 }
@@ -132,7 +132,7 @@ function CustomNode(props: {
       borderRadius="lg"
       boxShadow="sm"
       overflow="hidden"
-      alignItems={"center"}
+      alignItems="center"
       gap={4}
       px={4}
       // minW="180px"
@@ -147,14 +147,14 @@ function CustomNode(props: {
         w="28px"
         h="28px"
         bg={props.color}
-        rounded={"lg"}
+        rounded="lg"
         display="flex"
         alignItems="center"
         justifyContent="center"
       >
         {props.icon}
       </Box>
-      <Flex direction={"column"} gap={0.5} py={2}>
+      <Flex direction="column" gap={0.5} py={2}>
         <Text
           fontSize="x-small"
           fontWeight="medium"

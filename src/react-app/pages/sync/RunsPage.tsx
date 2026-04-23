@@ -20,8 +20,8 @@ export function Runs(props: { sync: Sync }) {
       <Flex
         p={4}
         fontSize="md"
-        fontWeight={"medium"}
-        textTransform={"uppercase"}
+        fontWeight="medium"
+        textTransform="uppercase"
         color="gray.500"
       >
         <Box flex={2}>Status</Box>
@@ -35,7 +35,7 @@ export function Runs(props: { sync: Sync }) {
           p={4}
           borderTopWidth="1px"
           color="black"
-          alignItems={"center"}
+          alignItems="center"
         >
           <Box flex={2}>
             <Chip status={run.status} text={run.status} />

@@ -6,15 +6,15 @@ export default function PageContent(props: {
   children: ReactNode;
 }) {
   return (
-    <Flex grow={1} h="100%" w="100%" direction="column" color={"black"}>
+    <Flex grow={1} h="100%" w="100%" direction="column" color="black">
       <Box
         w="100%"
         flexShrink={0}
         bg="gray.200"
         p={4}
         px={6}
-        borderBottom={"1px"}
-        borderColor={"gray.200"}
+        borderBottom="1px"
+        borderColor="gray.200"
       >
         {props.title}
       </Box>

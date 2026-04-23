@@ -8,11 +8,11 @@ export default function LabeledContent(props: {
 }) {
   return (
     <Flex direction="column" gap={0.5}>
-      <Flex direction={"row"} alignItems={"center"} color="gray.500" gap={1}>
+      <Flex direction="row" alignItems="center" color="gray.500" gap={1}>
         <Text
           fontSize="md"
-          fontWeight={"medium"}
-          textTransform={"uppercase"}
+          fontWeight="medium"
+          textTransform="uppercase"
           color="gray.500"
         >
           {props.label}

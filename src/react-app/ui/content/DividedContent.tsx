@@ -6,7 +6,7 @@ export default function DividedContent(props: {
   type?: "divider" | "arrow" | "breadcrumbs" | "dot";
 }) {
   return (
-    <Flex direction="row" gap={4} alignItems={"center"}>
+    <Flex direction="row" gap={4} alignItems="center">
       {props.children.map((child, index) => (
         <Fragment key={index}>
           {index > 0 && <Divider type={props.type} />}
@@ -41,5 +41,5 @@ function Divider(props: {
       </Box>
     );
 
-  return <Box h={"40px"} w={"1px"} bg={"gray.300"} />;
+  return <Box h="40px" w="1px" bg="gray.300" />;
 }

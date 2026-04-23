@@ -35,7 +35,7 @@ export default function Nav() {
           </Flex>
         </Flex>
       </Box>
-      <Box flex={1} h={"100%"} w={"100%"} overflow="auto" bg={"white"}>
+      <Box flex={1} h="100%" w="100%" overflow="auto" bg="white">
         <Outlet />
       </Box>
     </Flex>

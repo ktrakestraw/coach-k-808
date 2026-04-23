@@ -12,7 +12,7 @@ export default function NavLink(props: { label: string; to: string }) {
           py={3}
           px={4}
           flexGrow={1}
-          w={"234px"}
+          w="234px"
           borderRadius="md"
           bg={isActive ? "whiteAlpha.200" : "transparent"}
           _hover={{ bg: "whiteAlpha.50" }}

@@ -13,8 +13,8 @@ export default function IconButton(props: {
       aria-label={props.label}
       cursor={props.isDisabled ? "not-allowed" : undefined}
       disabled={props.isDisabled}
-      color={"white"}
-      bg={"teal.800"}
+      color="white"
+      bg="teal.800"
       _hover={{ bg: "teal.700" }}
       onClick={props.onClick}
     >

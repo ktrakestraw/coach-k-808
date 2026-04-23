@@ -25,7 +25,7 @@ export default function SyncPage() {
           <Content sync={sync} />
         </Flex>
       ) : (
-        <Text color={"red.500"}>Sync with ID {syncId} not found.</Text>
+        <Text color="red.500">Sync with ID {syncId} not found.</Text>
       )}
     </PageContent>
   );
@@ -35,9 +35,9 @@ function Title(props: { sync?: Sync }) {
   return (
     <DividedContent type="breadcrumbs">
       <Link to="/syncs">
-        <Text color={"teal.800"}>Syncs</Text>
+        <Text color="teal.800">Syncs</Text>
       </Link>
-      {props.sync && <Text color={"black"}>{props.sync.id}</Text>}
+      {props.sync && <Text color="black">{props.sync.id}</Text>}
     </DividedContent>
   );
 }
@@ -55,10 +55,10 @@ function ContentHeader(props: { sync: Sync }) {
       </DividedContent>
 
       <Button
-        cursor={"not-allowed"}
+        cursor="not-allowed"
         disabled
-        color={"white"}
-        bg={"teal.800"}
+        color="white"
+        bg="teal.800"
         _hover={{ bg: "teal.700" }}
       >
         Run Sync
@@ -82,7 +82,7 @@ export function Content(props: { sync: Sync }) {
           <Text>{props.sync.id}</Text>
         </LabeledContent>
         <LabeledContent label="Schedule">
-          <Text textTransform={"capitalize"}>{props.sync.schedule}</Text>
+          <Text textTransform="capitalize">{props.sync.schedule}</Text>
         </LabeledContent>
         <LabeledContent label="SLUG">
           <Text>

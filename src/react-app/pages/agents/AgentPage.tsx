@@ -23,12 +23,12 @@ export default function AgentPage() {
   return (
     <PageContent title={<Title agent={agent} />}>
       {agent ? (
-        <Flex gap={12} h={"100%"} direction="column">
+        <Flex gap={12} h="100%" direction="column">
           <ContentHeader agent={agent} />
           <Content agent={agent} />
         </Flex>
       ) : (
-        <Text color={"red.500"}>Agent with ID {agentId} not found.</Text>
+        <Text color="red.500">Agent with ID {agentId} not found.</Text>
       )}
     </PageContent>
   );
@@ -38,11 +38,11 @@ function Title(props: { agent?: Agent }) {
   return (
     <DividedContent type="breadcrumbs">
       <Link to="/agents">
-        <Text color={"teal.800"}>Agents</Text>
+        <Text color="teal.800">Agents</Text>
       </Link>
       {props.agent && (
         <Flex alignItems="center" gap={3}>
-          <Text color={"black"}>{props.agent.id}</Text>
+          <Text color="black">{props.agent.id}</Text>
           <Chip status={props.agent.status} text={props.agent.status} />
         </Flex>
       )}
@@ -59,7 +59,7 @@ function ContentHeader(props: { agent: Agent }) {
             label="Audience"
             labelAdornment={<MdOpenInNew size={16} />}
           >
-            <Text color={"black"} fontWeight={"normal"}>
+            <Text color="black" fontWeight="normal">
               {props.agent.audience.model}
             </Text>
           </LabeledContent>
@@ -90,7 +90,7 @@ export function Content(props: { agent: Agent }) {
     : "flow";
 
   return (
-    <Flex gap={8} direction="column" h={"100%"}>
+    <Flex gap={8} direction="column" h="100%">
       <DividedContent>
         <LabeledContent label="Agent ID">
           <Text>{props.agent.id}</Text>

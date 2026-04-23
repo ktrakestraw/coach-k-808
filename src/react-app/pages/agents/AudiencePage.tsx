@@ -16,12 +16,12 @@ export default function AudiencePage() {
   return (
     <PageContent title={<Title agent={agent} />}>
       {agent ? (
-        <Flex gap={12} h={"100%"} direction="column">
+        <Flex gap={12} h="100%" direction="column">
           <ContentHeader agent={agent} />
           <Content agent={agent} />
         </Flex>
       ) : (
-        <Text color={"red.500"}>Agent with ID {agentId} not found.</Text>
+        <Text color="red.500">Agent with ID {agentId} not found.</Text>
       )}
     </PageContent>
   );
@@ -31,15 +31,15 @@ function Title(props: { agent?: Agent }) {
   return (
     <DividedContent type="breadcrumbs">
       <Link to="/agents">
-        <Text color={"teal.800"}>Agents</Text>
+        <Text color="teal.800">Agents</Text>
       </Link>
       {props.agent && (
         <Link to={`/agents/${props.agent.id}/flow`}>
-          <Text color={"teal.800"}>{props.agent.id}</Text>
+          <Text color="teal.800">{props.agent.id}</Text>
         </Link>
       )}
       {props.agent?.audience && (
-        <Text color={"black"}>{props.agent.audience.model}</Text>
+        <Text color="black">{props.agent.audience.model}</Text>
       )}
     </DividedContent>
   );
@@ -53,7 +53,7 @@ function ContentHeader(props: { agent: Agent }) {
           w="28px"
           h="28px"
           bg="purple"
-          rounded={"lg"}
+          rounded="lg"
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -61,10 +61,10 @@ function ContentHeader(props: { agent: Agent }) {
           <BiCube size={16} color="white" />
         </Box>
         <Flex direction="column">
-          <Text fontSize={"xl"} fontWeight={"medium"}>
+          <Text fontSize="xl" fontWeight="medium">
             {props.agent.audience.model}
           </Text>
-          <Text fontSize={"sm"} color="gray.500">
+          <Text fontSize="sm" color="gray.500">
             {props.agent.audience.description}
           </Text>
         </Flex>
@@ -80,7 +80,7 @@ function ContentHeader(props: { agent: Agent }) {
 
 export function Content(props: { agent: Agent }) {
   return (
-    <Flex gap={8} direction="column" h={"100%"}>
+    <Flex gap={8} direction="column" h="100%">
       <DividedContent>
         <LabeledContent label="Audience ID">
           <Text>{props.agent.audience.id}</Text>

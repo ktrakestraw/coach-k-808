@@ -24,12 +24,12 @@ export default function StrategyPage() {
       title={<Title agent={agent} message={message} strategy={strategy} />}
     >
       {agent && message && strategy && strategyId ? (
-        <Flex gap={12} h={"100%"} direction="column">
+        <Flex gap={12} h="100%" direction="column">
           <ContentHeader agent={agent} message={message} strategy={strategy} />
           <Content agent={agent} strategy={strategy} message={message} />
         </Flex>
       ) : (
-        <Text color={"red.500"}>Strategy with ID {strategyId} not found.</Text>
+        <Text color="red.500">Strategy with ID {strategyId} not found.</Text>
       )}
     </PageContent>
   );
@@ -43,14 +43,14 @@ function Title(props: {
   return (
     <DividedContent type="breadcrumbs">
       <Link to="/agents">
-        <Text color={"teal.800"}>Agents</Text>
+        <Text color="teal.800">Agents</Text>
       </Link>
       {props.agent && (
         <Link to={`/agents/${props.agent.id}/strategies`}>
-          <Text color={"teal.800"}>{props.agent.id}</Text>
+          <Text color="teal.800">{props.agent.id}</Text>
         </Link>
       )}
-      {props.strategy && <Text color={"black"}>{props.strategy.id}</Text>}
+      {props.strategy && <Text color="black">{props.strategy.id}</Text>}
     </DividedContent>
   );
 }
@@ -77,14 +77,14 @@ function ContentHeader(props: {
           w="28px"
           h="28px"
           bg="teal"
-          rounded={"lg"}
+          rounded="lg"
           display="flex"
           alignItems="center"
           justifyContent="center"
         >
           <BiTestTube size={16} color="white" />
         </Box>
-        <Text fontSize={"xl"} fontWeight={"medium"}>
+        <Text fontSize="xl" fontWeight="medium">
           {props.strategy.name}
         </Text>
         {props.message && <Chip text={props.message.type} />}
@@ -121,7 +121,7 @@ export function Content(props: {
   message: Message;
 }) {
   return (
-    <Flex gap={8} direction="column" h={"100%"}>
+    <Flex gap={8} direction="column" h="100%">
       <DividedContent>
         <LabeledContent label="Strategy ID">
           <Text>{props.strategy.id}</Text>
@@ -139,7 +139,7 @@ export function Content(props: {
         </LabeledContent>
 
         <LabeledContent label="Frequency Restriction">
-          <Text textTransform={"capitalize"}>{props.message.frequency}</Text>
+          <Text textTransform="capitalize">{props.message.frequency}</Text>
         </LabeledContent>
       </DividedContent>
 
