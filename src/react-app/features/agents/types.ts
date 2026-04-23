@@ -10,11 +10,22 @@ export type Agent = {
     successMetric: string;
   };
   createdAt: string;
-  strategies: {
-    id: string;
-    name: string;
-    percentage: number;
-    success: number;
-    lastCheckpoint: string;
-  }[];
+  messages: Message[];
+};
+
+type Message = {
+  id: string;
+  type: "Push" | "Email" | "SMS";
+  frequency: "whenever" | "hourly" | "daily" | "weekly";
+  strategies: Strategy[];
+};
+
+type Strategy = {
+  id: string;
+  name: string;
+  tags: string[];
+  prompt: string;
+  percentage: number;
+  success: number;
+  lastCheckpoint: string;
 };

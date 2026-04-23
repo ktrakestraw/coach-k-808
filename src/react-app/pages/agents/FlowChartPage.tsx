@@ -28,44 +28,12 @@ export default function FlowChartPage() {
   return <FlowChart agent={agent} />;
 }
 
-// BuildFlowChart creates a graph where an audience node connects to each
-// strategy node. I'm largely doing this just to have fun with React Flow, but I
-// could imagine more sub-strategies being organized.
-function buildFlowChart(agent: Agent): { nodes: Node[]; edges: Edge[] } {
-  const audience: Node = {
-    id: "audience",
-    style: { backgroundColor: "var(--chakra-colors-purple-100)" },
-    position: { x: 0, y: 0 },
-    data: { label: agent.audience.model },
-  };
-
-  const strategies: Node[] = agent.strategies.map((strategy, i) => ({
-    id: strategy.id,
-    style: { backgroundColor: "var(--chakra-colors-orange-100)" },
-    position: {
-      x: (i - (agent.strategies.length - 1) / 2) * 200, // spreads strategies out horizontally
-      y: 150,
-    },
-    data: { label: strategy.name },
-  }));
-
-  const connections: Edge[] = agent.strategies.map((strategy, i) => ({
-    id: `edge-${i}`,
-    source: "audience",
-    target: strategy.id,
-    label: strategy.percentage ? `${strategy.percentage}%` : "0%",
-  }));
-
-  return { nodes: [audience, ...strategies], edges: connections };
-}
-
 function FlowChart(props: { agent: Agent }) {
-  const { nodes: initialNodes, edges: initialEdges } = buildFlowChart(
-    props.agent,
-  );
+  const flowChart = buildFlowChart(props.agent);
+
   // Below was mostly copied from React Flow docs: https://reactflow.dev/learn#usage
-  const [nodes, setNodes] = useState(initialNodes);
-  const [edges, setEdges] = useState(initialEdges);
+  const [nodes, setNodes] = useState(flowChart.nodes);
+  const [edges, setEdges] = useState(flowChart.edges);
 
   const onNodesChange = useCallback(
     (changes: NodeChange[]) =>
@@ -102,4 +70,58 @@ function FlowChart(props: { agent: Agent }) {
       />
     </Flex>
   );
+}
+
+// BuildFlowChart creates a graph where an audience node connects to each
+// message node followed by individual strategies. I'm largely doing this just
+// to have fun with React Flow, its quite messy right now.
+function buildFlowChart(agent: Agent): { nodes: Node[]; edges: Edge[] } {
+  const nodes: Node[] = [];
+  const edges: Edge[] = [];
+
+  // add audience node
+  nodes.push({
+    id: "audience",
+    style: { backgroundColor: "var(--chakra-colors-purple-100)" },
+    position: { x: 0, y: 0 },
+    data: { label: agent.audience.model },
+  });
+
+  agent.messages.forEach((message, i) => {
+    // add message nodes, attached to audience node
+    const messageX = (i - (agent.messages.length - 1) / 2) * 400;
+    nodes.push({
+      id: message.id,
+      style: { backgroundColor: "var(--chakra-colors-orange-100)" },
+      position: { x: messageX, y: 150 },
+      data: { label: message.type },
+    });
+    edges.push({
+      id: `edge-${message.id}`,
+      source: "audience",
+      target: message.id,
+      label: `${message.strategies.reduce((acc, s) => acc + s.percentage, 0)}%`,
+    });
+
+    message.strategies.forEach((strategy, j) => {
+      // add strategy nodes, attach to message nodes
+      nodes.push({
+        id: strategy.id,
+        style: { backgroundColor: "var(--chakra-colors-orange-100)" },
+        position: {
+          x: (j - (message.strategies.length - 1) / 2) * 200 + messageX,
+          y: 300,
+        },
+        data: { label: strategy.name },
+      });
+      edges.push({
+        id: `edge-${strategy.id}`,
+        source: message.id,
+        target: strategy.id,
+        label: strategy.percentage ? `${strategy.percentage}%` : "0%",
+      });
+    });
+  });
+
+  return { nodes, edges };
 }

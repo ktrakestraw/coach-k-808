@@ -110,7 +110,7 @@ export function Content(props: { agent: Agent }) {
           <Text>{props.agent.createdAt}</Text>
         </LabeledContent>
         <LabeledContent label="Strategies">
-          <Text>{props.agent.strategies.length}</Text>
+          <Text>{props.agent.messages.map((s) => s.strategies).length}</Text>
         </LabeledContent>
       </DividedContent>
 
