@@ -8,6 +8,11 @@ export const AGENTS: Agent[] = [
       id: "aud-001",
       model: "All Customers",
       description: "Users who signed up in the last 90 days",
+      fields: {
+        first_name: "text",
+        last_ame: "text",
+        sign_up: "date",
+      },
     },
     criteria: {
       successMetric: "purchase",
@@ -89,6 +94,11 @@ export const AGENTS: Agent[] = [
       id: "aud-002",
       model: "Lapsing Users",
       description: "Users with no activity in the past 30 days",
+      fields: {
+        name: "text",
+        lastLogin: "date",
+        signUpDate: "date",
+      },
     },
     criteria: {
       successMetric: "app_open",
@@ -147,6 +157,12 @@ export const AGENTS: Agent[] = [
       id: "aud-003",
       model: "High-Value Customers",
       description: "Users with lifetime value above $500",
+      fields: {
+        name: "text",
+        purchasesCount: "number",
+        purchaseValue: "number",
+        createdAt: "date",
+      },
     },
     criteria: {
       successMetric: "signup",

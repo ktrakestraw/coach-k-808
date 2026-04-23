@@ -1,11 +1,7 @@
 export type Agent = {
   id: string;
   status: "ACTIVE" | "DISABLED" | "INCOMPLETE" | "ERROR";
-  audience: {
-    id: string;
-    model: string;
-    description: string;
-  };
+  audience: Audience;
   criteria: {
     successMetric: string;
   };
@@ -13,14 +9,21 @@ export type Agent = {
   messages: Message[];
 };
 
-type Message = {
+export type Audience = {
+  id: string;
+  model: string;
+  description: string;
+  fields: Record<string, string>;
+};
+
+export type Message = {
   id: string;
   type: "Push" | "Email" | "SMS";
   frequency: "whenever" | "hourly" | "daily" | "weekly";
   strategies: Strategy[];
 };
 
-type Strategy = {
+export type Strategy = {
   id: string;
   name: string;
   tags: string[];
