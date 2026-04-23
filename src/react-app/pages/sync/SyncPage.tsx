@@ -37,7 +37,7 @@ function Title(props: { sync?: Sync }) {
       <Link to="/syncs">
         <Text color={"teal.800"}>Syncs</Text>
       </Link>
-      {props.sync && <Text color={"gray.500"}>#{props.sync.id}</Text>}
+      {props.sync && <Text color={"black"}>{props.sync.id}</Text>}
     </DividedContent>
   );
 }

@@ -12,6 +12,7 @@ import { Agent } from "../../features/agents/types";
 import DividedContent from "../../ui/content/DividedContent";
 import LabeledContent from "../../ui/content/LabeledContent";
 import Chip from "../../ui/feedback/Chip";
+import { MdOpenInNew } from "react-icons/md";
 
 export default function AgentPage() {
   const { agentId } = useParams();
@@ -39,7 +40,7 @@ function Title(props: { agent?: Agent }) {
       </Link>
       {props.agent && (
         <Flex alignItems="center" gap={3}>
-          <Text color={"gray.500"}>#{props.agent.id}</Text>
+          <Text color={"black"}>{props.agent.id}</Text>
           <Chip status={props.agent.status} text={props.agent.status} />
         </Flex>
       )}
@@ -51,9 +52,16 @@ function ContentHeader(props: { agent: Agent }) {
   return (
     <Flex gap={2} justify="space-between" alignItems="center">
       <DividedContent type="arrow">
-        <LabeledContent label="Audience">
-          <Text>{props.agent.audience.model}</Text>
-        </LabeledContent>
+        <Link to={`/agents/${props.agent.id}/audience`}>
+          <LabeledContent
+            label="Audience"
+            labelAdornment={<MdOpenInNew size={16} />}
+          >
+            <Text color={"black"} fontWeight={"normal"}>
+              {props.agent.audience.model}
+            </Text>
+          </LabeledContent>
+        </Link>
         <LabeledContent label="Success Metric">
           <Text textTransform="capitalize">
             {props.agent.criteria.successMetric.replace("_", " ")}
@@ -102,14 +110,13 @@ export function Content(props: { agent: Agent }) {
         <LabeledContent label="Agent ID">
           <Text>{props.agent.id}</Text>
         </LabeledContent>
-        <LabeledContent label="Audience">
-          <Text>{props.agent.audience.description}</Text>
-        </LabeledContent>
         <LabeledContent label="Created">
           <Text>{props.agent.createdAt}</Text>
         </LabeledContent>
         <LabeledContent label="Strategies">
-          <Text>{props.agent.messages.map((s) => s.strategies).length}</Text>
+          <Text>
+            {props.agent.messages.flatMap((s) => s.strategies).length}
+          </Text>
         </LabeledContent>
       </DividedContent>
 

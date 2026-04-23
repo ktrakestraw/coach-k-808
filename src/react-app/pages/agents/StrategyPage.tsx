@@ -46,10 +46,10 @@ function Title(props: {
       </Link>
       {props.agent && (
         <Link to={`/agents/${props.agent.id}/strategies`}>
-          <Text color={"teal.800"}>#{props.agent.id}</Text>
+          <Text color={"teal.800"}>{props.agent.id}</Text>
         </Link>
       )}
-      {props.strategy && <Text color={"gray.500"}>{props.strategy.id}</Text>}
+      {props.strategy && <Text color={"black"}>{props.strategy.id}</Text>}
     </DividedContent>
   );
 }

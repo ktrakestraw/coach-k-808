@@ -14,6 +14,9 @@ export type Audience = {
   model: string;
   description: string;
   fields: Record<string, string>;
+  size: number;
+  destinations: string[];
+  lastSynced: string;
 };
 
 export type Message = {

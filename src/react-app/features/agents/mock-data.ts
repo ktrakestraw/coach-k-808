@@ -2,7 +2,7 @@ import { Agent } from "./types";
 
 export const AGENTS: Agent[] = [
   {
-    id: "93720",
+    id: "agt-93720",
     status: "ACTIVE",
     audience: {
       id: "aud-001",
@@ -10,9 +10,12 @@ export const AGENTS: Agent[] = [
       description: "Users who signed up in the last 90 days",
       fields: {
         first_name: "text",
-        last_ame: "text",
+        last_name: "text",
         sign_up: "date",
       },
+      size: 84200,
+      destinations: ["Klaviyo", "Meta Ads"],
+      lastSynced: "12/13/22 at 3:15 PM",
     },
     criteria: {
       successMetric: "purchase",
@@ -88,7 +91,7 @@ export const AGENTS: Agent[] = [
     ],
   },
   {
-    id: "34001",
+    id: "agt-34001",
     status: "ACTIVE",
     audience: {
       id: "aud-002",
@@ -99,6 +102,9 @@ export const AGENTS: Agent[] = [
         lastLogin: "date",
         signUpDate: "date",
       },
+      size: 21500,
+      destinations: ["Braze", "Google Ads"],
+      lastSynced: "12/13/22 at 11:01 AM",
     },
     criteria: {
       successMetric: "app_open",
@@ -151,7 +157,7 @@ export const AGENTS: Agent[] = [
     ],
   },
   {
-    id: "19596",
+    id: "agt-19596",
     status: "ERROR",
     audience: {
       id: "aud-003",
@@ -163,6 +169,9 @@ export const AGENTS: Agent[] = [
         purchaseValue: "number",
         createdAt: "date",
       },
+      size: 6800,
+      destinations: ["Salesforce", "Klaviyo", "Meta Ads"],
+      lastSynced: "12/12/22 at 10:19 AM",
     },
     criteria: {
       successMetric: "signup",
@@ -221,7 +230,7 @@ export const AGENTS: Agent[] = [
     ],
   },
   {
-    id: "71284",
+    id: "agt-71284",
     status: "DISABLED",
     audience: {
       id: "aud-004",
@@ -232,6 +241,9 @@ export const AGENTS: Agent[] = [
         lastPurchase: "date",
         totalOrders: "number",
       },
+      size: 38900,
+      destinations: ["Klaviyo"],
+      lastSynced: "03/02/23 at 9:00 AM",
     },
     criteria: {
       successMetric: "purchase",
@@ -247,7 +259,8 @@ export const AGENTS: Agent[] = [
             id: "str-012",
             name: "Sale preview",
             tags: ["sale", "preview"],
-            prompt: "Our biggest sale of the season starts Friday — get early access.",
+            prompt:
+              "Our biggest sale of the season starts Friday — get early access.",
             percentage: 50,
             success: 6.1,
             lastCheckpoint: "03/02/23 at 9:00 AM",

@@ -49,7 +49,9 @@ function Content() {
               <Chip status={agent.status} text={agent.status} />
             </Box>
             <Box flex={2}>{agent.audience.model}</Box>
-            <Box flex={2}>{agent.messages.map((s) => s.strategies).length}</Box>
+            <Box flex={2}>
+              {agent.messages.flatMap((s) => s.strategies).length}
+            </Box>
             <Box flex={2}>{agent.criteria.successMetric}</Box>
             <Box flex={1}>{agent.createdAt}</Box>
           </Flex>
