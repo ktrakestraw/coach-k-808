@@ -1,4 +1,4 @@
-import { Flex, Input, Text, Textarea } from "@chakra-ui/react";
+import { Box, Flex, Input, Text, Textarea } from "@chakra-ui/react";
 import PageContent from "../../ui/content/PageContent";
 import { AGENTS } from "../../features/agents/mock-data";
 import { Link, useParams } from "react-router-dom";
@@ -7,6 +7,7 @@ import { Agent, Message, Strategy } from "../../features/agents/types";
 import DividedContent from "../../ui/content/DividedContent";
 import LabeledContent from "../../ui/content/LabeledContent";
 import Chip from "../../ui/feedback/Chip";
+import { BiTestTube } from "react-icons/bi";
 
 export default function StrategyPage() {
   const { agentId, strategyId } = useParams();
@@ -71,6 +72,17 @@ function ContentHeader(props: {
   return (
     <Flex gap={2} justify="space-between" alignItems="center">
       <Flex alignItems="center" gap={2}>
+        <Box
+          w="28px"
+          h="28px"
+          bg="teal"
+          rounded={"lg"}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <BiTestTube size={16} color="white" />
+        </Box>
         <Text fontSize={"xl"} fontWeight={"medium"}>
           {props.strategy.name}
         </Text>

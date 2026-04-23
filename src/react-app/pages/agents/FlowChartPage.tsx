@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, ReactNode } from "react";
 import {
   ReactFlow,
   applyNodeChanges,
@@ -19,6 +19,7 @@ import { Agent } from "../../features/agents/types";
 import { AGENTS } from "../../features/agents/mock-data";
 import { useNavigate, useParams } from "react-router-dom";
 import ErrorBanner from "../../ui/feedback/ErrorBanner";
+import { BiChat, BiCube, BiTestTube } from "react-icons/bi";
 
 export default function FlowChartPage() {
   const { agentId } = useParams();
@@ -63,6 +64,7 @@ function FlowChart(props: { agent: Agent }) {
           title="Model"
           label={String(nodeProps.data.label)}
           color="purple"
+          icon={<BiCube size={16} color="white" />}
           handles={["source"]}
           onClick={() => navigate(`/agents/${props.agent.id}/audience`)}
         />
@@ -73,6 +75,7 @@ function FlowChart(props: { agent: Agent }) {
           handles={["source", "target"]}
           label={String(nodeProps.data.label)}
           color="orange"
+          icon={<BiChat size={16} color="white" />}
         />
       ),
       strategy: (nodeProps: NodeProps) => (
@@ -80,6 +83,7 @@ function FlowChart(props: { agent: Agent }) {
           title="Strategy"
           label={String(nodeProps.data.label)}
           color="teal"
+          icon={<BiTestTube size={16} color="white" />}
           handles={["target"]}
           onClick={() =>
             navigate(`/agents/${props.agent.id}/strategies/${nodeProps.id}`)
@@ -116,6 +120,7 @@ function CustomNode(props: {
   title: string;
   label: string;
   color: string;
+  icon?: ReactNode;
   onClick?: () => void;
   handles?: ("source" | "target")[];
 }) {
@@ -138,7 +143,17 @@ function CustomNode(props: {
       {props.handles?.includes("target") && (
         <Handle type="target" position={Position.Top} />
       )}
-      <Box w="28px" h="28px" bg={props.color} rounded={"lg"} />
+      <Box
+        w="28px"
+        h="28px"
+        bg={props.color}
+        rounded={"lg"}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        {props.icon}
+      </Box>
       <Flex direction={"column"} gap={0.5} py={2}>
         <Text
           fontSize="x-small"
