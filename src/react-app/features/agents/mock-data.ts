@@ -220,4 +220,65 @@ export const AGENTS: Agent[] = [
       },
     ],
   },
+  {
+    id: "71284",
+    status: "DISABLED",
+    audience: {
+      id: "aud-004",
+      model: "Seasonal Shoppers",
+      description: "Users who purchase only during sale periods",
+      fields: {
+        name: "text",
+        lastPurchase: "date",
+        totalOrders: "number",
+      },
+    },
+    criteria: {
+      successMetric: "purchase",
+    },
+    createdAt: "03/02/23",
+    messages: [
+      {
+        id: "msg-009",
+        type: "Email",
+        frequency: "weekly",
+        strategies: [
+          {
+            id: "str-012",
+            name: "Sale preview",
+            tags: ["sale", "preview"],
+            prompt: "Our biggest sale of the season starts Friday — get early access.",
+            percentage: 50,
+            success: 6.1,
+            lastCheckpoint: "03/02/23 at 9:00 AM",
+          },
+          {
+            id: "str-013",
+            name: "Control",
+            tags: ["control"],
+            prompt: "",
+            percentage: 50,
+            success: 1.3,
+            lastCheckpoint: "03/02/23 at 9:00 AM",
+          },
+        ],
+      },
+      {
+        id: "msg-010",
+        type: "SMS",
+        frequency: "weekly",
+        strategies: [
+          {
+            id: "str-014",
+            name: "Flash sale alert",
+            tags: ["urgency", "sale"],
+            prompt: "Flash sale starts now — 30% off everything for 24 hours.",
+            percentage: 100,
+            success: 8.4,
+            lastCheckpoint: "03/02/23 at 9:00 AM",
+          },
+        ],
+      },
+    ],
+  },
 ];

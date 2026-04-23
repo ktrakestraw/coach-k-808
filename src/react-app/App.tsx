@@ -39,8 +39,7 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            loader: ({ params }) =>
-              redirect(`/agents/${params.agentId}/strategies`),
+            loader: ({ params }) => redirect(`/agents/${params.agentId}/flow`),
           },
           {
             path: "strategies",

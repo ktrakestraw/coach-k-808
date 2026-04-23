@@ -92,9 +92,9 @@ export function Content(props: { agent: Agent }) {
 
   const splitPaths = pathname.split("/");
   const lastPath = splitPaths[splitPaths.length - 1];
-  const activeTab = ["strategies", "guardrails", "flow"].includes(lastPath)
+  const activeTab = ["flow", "strategies", "guardrails"].includes(lastPath)
     ? lastPath
-    : "strategies";
+    : "flow";
 
   return (
     <Flex gap={8} direction="column" h={"100%"}>
@@ -123,6 +123,15 @@ export function Content(props: { agent: Agent }) {
             focusRing="none"
             border="none"
             _hover={{ bg: "gray.100" }}
+            value="flow"
+          >
+            Overview
+          </Tabs.Trigger>
+          <Tabs.Trigger
+            bg="none"
+            focusRing="none"
+            border="none"
+            _hover={{ bg: "gray.100" }}
             value="strategies"
           >
             Strategies
@@ -135,15 +144,6 @@ export function Content(props: { agent: Agent }) {
             value="guardrails"
           >
             Guardrails
-          </Tabs.Trigger>
-          <Tabs.Trigger
-            bg="none"
-            focusRing="none"
-            border="none"
-            _hover={{ bg: "gray.100" }}
-            value="flow"
-          >
-            Flow Chart
           </Tabs.Trigger>
         </Tabs.List>
       </Tabs.Root>

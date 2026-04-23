@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 import {
   ReactFlow,
   applyNodeChanges,
@@ -9,12 +9,15 @@ import {
   Edge,
   EdgeChange,
   Connection,
+  NodeProps,
+  Handle,
+  Position,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
-import { Flex } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import { Agent } from "../../features/agents/types";
 import { AGENTS } from "../../features/agents/mock-data";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ErrorBanner from "../../ui/feedback/ErrorBanner";
 
 export default function FlowChartPage() {
@@ -51,6 +54,42 @@ function FlowChart(props: { agent: Agent }) {
     [],
   );
 
+  const navigate = useNavigate();
+
+  const nodeTypes = useMemo(
+    () => ({
+      audience: (nodeProps: NodeProps) => (
+        <CustomNode
+          title="Model"
+          label={String(nodeProps.data.label)}
+          color="purple"
+          handles={["source"]}
+          onClick={() => navigate(`/agents/${props.agent.id}/audience`)}
+        />
+      ),
+      message: (nodeProps: NodeProps) => (
+        <CustomNode
+          title="Message"
+          handles={["source", "target"]}
+          label={String(nodeProps.data.label)}
+          color="orange"
+        />
+      ),
+      strategy: (nodeProps: NodeProps) => (
+        <CustomNode
+          title="Strategy"
+          label={String(nodeProps.data.label)}
+          color="teal"
+          handles={["target"]}
+          onClick={() =>
+            navigate(`/agents/${props.agent.id}/strategies/${nodeProps.id}`)
+          }
+        />
+      ),
+    }),
+    [props.agent.id, navigate],
+  );
+
   return (
     <Flex
       w="full"
@@ -63,11 +102,60 @@ function FlowChart(props: { agent: Agent }) {
       <ReactFlow
         nodes={nodes}
         edges={edges}
+        nodeTypes={nodeTypes}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         fitView
       />
+    </Flex>
+  );
+}
+
+function CustomNode(props: {
+  title: string;
+  label: string;
+  color: string;
+  onClick?: () => void;
+  handles?: ("source" | "target")[];
+}) {
+  return (
+    <Flex
+      bg="white"
+      borderWidth="1px"
+      borderColor="gray.200"
+      borderRadius="lg"
+      boxShadow="sm"
+      overflow="hidden"
+      alignItems={"center"}
+      gap={4}
+      px={4}
+      // minW="180px"
+      cursor={props.onClick ? "pointer" : "default"}
+      _hover={props.onClick ? { borderColor: props.color } : undefined}
+      onClick={props.onClick}
+    >
+      {props.handles?.includes("target") && (
+        <Handle type="target" position={Position.Top} />
+      )}
+      <Box w="28px" h="28px" bg={props.color} rounded={"lg"} />
+      <Flex direction={"column"} gap={0.5} py={2}>
+        <Text
+          fontSize="x-small"
+          fontWeight="medium"
+          color="gray.400"
+          letterSpacing="wider"
+          textTransform="uppercase"
+        >
+          {props.title}
+        </Text>
+        <Text fontSize="sm" fontWeight="semibold" color="gray.800">
+          {props.label}
+        </Text>
+      </Flex>
+      {props.handles?.includes("source") && (
+        <Handle type="source" position={Position.Bottom} />
+      )}
     </Flex>
   );
 }
@@ -79,20 +167,18 @@ function buildFlowChart(agent: Agent): { nodes: Node[]; edges: Edge[] } {
   const nodes: Node[] = [];
   const edges: Edge[] = [];
 
-  // add audience node
   nodes.push({
     id: "audience",
-    style: { backgroundColor: "var(--chakra-colors-purple-100)" },
+    type: "audience",
     position: { x: 0, y: 0 },
     data: { label: agent.audience.model },
   });
 
   agent.messages.forEach((message, i) => {
-    // add message nodes, attached to audience node
     const messageX = (i - (agent.messages.length - 1) / 2) * 400;
     nodes.push({
       id: message.id,
-      style: { backgroundColor: "var(--chakra-colors-orange-100)" },
+      type: "message",
       position: { x: messageX, y: 150 },
       data: { label: message.type },
     });
@@ -104,10 +190,9 @@ function buildFlowChart(agent: Agent): { nodes: Node[]; edges: Edge[] } {
     });
 
     message.strategies.forEach((strategy, j) => {
-      // add strategy nodes, attach to message nodes
       nodes.push({
         id: strategy.id,
-        style: { backgroundColor: "var(--chakra-colors-orange-100)" },
+        type: "strategy",
         position: {
           x: (j - (message.strategies.length - 1) / 2) * 200 + messageX,
           y: 300,
