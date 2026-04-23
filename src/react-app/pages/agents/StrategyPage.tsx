@@ -46,7 +46,7 @@ function Title(props: {
         <Text color="teal.800">Agents</Text>
       </Link>
       {props.agent && (
-        <Link to={`/agents/${props.agent.id}/strategies`}>
+        <Link to={`/agents/${props.agent.id}/flow`}>
           <Text color="teal.800">{props.agent.id}</Text>
         </Link>
       )}

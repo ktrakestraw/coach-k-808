@@ -15,6 +15,7 @@ import Chip from "../../ui/feedback/Chip";
 import { MdOpenInNew } from "react-icons/md";
 import Button from "../../ui/inputs/Button";
 import IconButton from "../../ui/inputs/IconButton";
+import { BiLockAlt } from "react-icons/bi";
 
 export default function AgentPage() {
   const { agentId } = useParams();
@@ -135,7 +136,10 @@ export function Content(props: { agent: Agent }) {
             _hover={{ bg: "gray.100" }}
             value="guardrails"
           >
-            Guardrails
+            <Flex alignItems="center" gap={1}>
+              Guardrails
+              <BiLockAlt />
+            </Flex>
           </Tabs.Trigger>
         </Tabs.List>
       </Tabs.Root>
