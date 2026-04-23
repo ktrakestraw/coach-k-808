@@ -3,7 +3,7 @@ import { Fragment, ReactNode } from "react";
 
 export default function DividedContent(props: {
   children: ReactNode[];
-  type?: "divider" | "arrow" | "breadcrumbs";
+  type?: "divider" | "arrow" | "breadcrumbs" | "dot";
 }) {
   return (
     <Flex direction="row" gap={4} alignItems={"center"}>
@@ -17,11 +17,20 @@ export default function DividedContent(props: {
   );
 }
 
-function Divider(props: { type?: "divider" | "arrow" | "breadcrumbs" }) {
+function Divider(props: {
+  type?: "divider" | "dot" | "arrow" | "breadcrumbs";
+}) {
   if (props.type === "arrow")
     return (
       <Box as="span" fontSize="lg" color="gray.400">
         →
+      </Box>
+    );
+
+  if (props.type === "dot")
+    return (
+      <Box as="span" fontSize="lg" color="gray.400">
+        •
       </Box>
     );
 

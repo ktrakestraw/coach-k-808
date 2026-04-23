@@ -63,8 +63,7 @@ function ContentHeader(props: { agent: Agent }) {
 
       <Flex gap={4} justify="space-between" alignItems="center">
         <Switch.Root
-          checked={["ACTIVE", "ERROR"].includes(props.agent.status)}
-          onCheckedChange={({ checked }) => console.log(checked)}
+          defaultChecked={["ACTIVE", "ERROR"].includes(props.agent.status)}
         >
           <Switch.HiddenInput />
           <Switch.Control

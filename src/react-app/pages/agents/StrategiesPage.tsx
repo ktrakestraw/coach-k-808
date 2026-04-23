@@ -1,6 +1,6 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { AGENTS } from "../../features/agents/mock-data";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Agent } from "../../features/agents/types";
 import Chip from "../../ui/feedback/Chip";
 
@@ -29,29 +29,35 @@ export function Strategies(props: { agent: Agent }) {
       </Flex>
       {props.agent.messages.map((message) =>
         message.strategies.map((strategy) => (
-          <Flex
-            key={strategy.name}
-            p={4}
-            borderTopWidth="1px"
-            color="black"
-            alignItems="center"
+          <Link
+            key={strategy.id}
+            to={`/agents/${props.agent.id}/strategies/${strategy.id}`}
+            style={{ display: "contents" }}
           >
-            <Box flex={3}>
-              <Flex alignItems="center" gap={2}>
-                <Text>{strategy.name}</Text>
-                <Chip text={message.type} />
-              </Flex>
-            </Box>
-            <Box flex={1}>
-              <Text>{strategy.percentage}%</Text>
-            </Box>
-            <Box flex={1}>
-              <Text>{strategy.success}%</Text>
-            </Box>
-            <Box flex={2}>
-              <Text>{strategy.lastCheckpoint}</Text>
-            </Box>
-          </Flex>
+            <Flex
+              key={strategy.name}
+              p={4}
+              borderTopWidth="1px"
+              color="black"
+              alignItems="center"
+            >
+              <Box flex={3}>
+                <Flex alignItems="center" gap={2}>
+                  <Text>{strategy.name}</Text>
+                  <Chip text={message.type} />
+                </Flex>
+              </Box>
+              <Box flex={1}>
+                <Text>{strategy.percentage}%</Text>
+              </Box>
+              <Box flex={1}>
+                <Text>{strategy.success}%</Text>
+              </Box>
+              <Box flex={2}>
+                <Text>{strategy.lastCheckpoint}</Text>
+              </Box>
+            </Flex>
+          </Link>
         )),
       )}
     </Box>

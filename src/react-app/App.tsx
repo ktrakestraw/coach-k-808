@@ -65,6 +65,12 @@ const router = createBrowserRouter([
         ],
       },
       {
+        path: "/agents/:agentId/strategies/:strategyId",
+        lazy: async () => ({
+          Component: (await import("./pages/agents/StrategyPage")).default,
+        }),
+      },
+      {
         path: "/syncs/:syncId",
         lazy: async () => ({
           Component: (await import("./pages/sync/SyncPage")).default,
