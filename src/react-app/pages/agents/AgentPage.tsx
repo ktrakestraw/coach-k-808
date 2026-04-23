@@ -1,4 +1,4 @@
-import { Button, Flex, Switch, Tabs, Text } from "@chakra-ui/react";
+import { Flex, Tabs, Text } from "@chakra-ui/react";
 import PageContent from "../../ui/content/PageContent";
 import { AGENTS } from "../../features/agents/mock-data";
 import {
@@ -13,6 +13,8 @@ import DividedContent from "../../ui/content/DividedContent";
 import LabeledContent from "../../ui/content/LabeledContent";
 import Chip from "../../ui/feedback/Chip";
 import { MdOpenInNew } from "react-icons/md";
+import Button from "../../ui/inputs/Button";
+import IconButton from "../../ui/inputs/IconButton";
 
 export default function AgentPage() {
   const { agentId } = useParams();
@@ -69,26 +71,9 @@ function ContentHeader(props: { agent: Agent }) {
         </LabeledContent>
       </DividedContent>
 
-      <Flex gap={4} justify="space-between" alignItems="center">
-        <Switch.Root
-          defaultChecked={["ACTIVE", "ERROR"].includes(props.agent.status)}
-        >
-          <Switch.HiddenInput />
-          <Switch.Control
-            bg={
-              ["ACTIVE", "ERROR"].includes(props.agent.status)
-                ? "teal.800"
-                : "teal.600"
-            }
-            _hover={{ bg: "teal.700" }}
-          >
-            <Switch.Thumb />
-          </Switch.Control>
-        </Switch.Root>
-
-        <Button color={"white"} bg={"teal.800"} _hover={{ bg: "teal.700" }}>
-          Assess Success
-        </Button>
+      <Flex gap={2} justify="space-between" alignItems="center">
+        <IconButton label="Edit Agent" isDisabled />
+        <Button label="Add Strategy" isDisabled />
       </Flex>
     </Flex>
   );

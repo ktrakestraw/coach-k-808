@@ -1,8 +1,9 @@
-import { Box, Button, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import PageContent from "../../ui/content/PageContent";
 import Chip from "../../ui/feedback/Chip";
 import { Link } from "react-router-dom";
 import { AGENTS } from "../../features/agents/mock-data";
+import Button from "../../ui/inputs/Button";
 
 export default function AgentsPage() {
   return (
@@ -19,9 +20,8 @@ function ContentHeader() {
   return (
     <Flex gap={2} justify="space-between" alignItems="center">
       <Text fontSize="2xl">Agents</Text>
-      <Button color={"white"} bg={"teal.800"} _hover={{ bg: "teal.700" }}>
-        New Agent
-      </Button>
+
+      <Button label="New Agent" isDisabled />
     </Flex>
   );
 }

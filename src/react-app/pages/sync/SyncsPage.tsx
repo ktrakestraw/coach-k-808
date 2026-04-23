@@ -1,8 +1,9 @@
-import { Box, Button, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import PageContent from "../../ui/content/PageContent";
 import { SYNCS } from "../../features/sync/mock-data";
 import Chip from "../../ui/feedback/Chip";
 import { Link } from "react-router-dom";
+import Button from "../../ui/inputs/Button";
 
 export default function SyncsPage() {
   return (
@@ -19,9 +20,7 @@ function ContentHeader() {
   return (
     <Flex gap={2} justify="space-between" alignItems="center">
       <Text fontSize="2xl">Syncs</Text>
-      <Button color={"white"} bg={"teal.800"} _hover={{ bg: "teal.700" }}>
-        New Sync
-      </Button>
+      <Button label="New Sync" isDisabled />
     </Flex>
   );
 }

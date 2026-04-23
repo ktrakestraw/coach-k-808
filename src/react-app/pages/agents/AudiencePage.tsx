@@ -5,8 +5,9 @@ import { Link, useParams } from "react-router-dom";
 import { Agent } from "../../features/agents/types";
 import DividedContent from "../../ui/content/DividedContent";
 import LabeledContent from "../../ui/content/LabeledContent";
-import { BiCube } from "react-icons/bi";
+import { BiCube, BiSync } from "react-icons/bi";
 import Chip from "../../ui/feedback/Chip";
+import IconButton from "../../ui/inputs/IconButton";
 
 export default function AudiencePage() {
   const { agentId } = useParams();
@@ -67,6 +68,11 @@ function ContentHeader(props: { agent: Agent }) {
             {props.agent.audience.description}
           </Text>
         </Flex>
+      </Flex>
+
+      <Flex gap={2} alignItems="center">
+        <IconButton label="Edit Audience" isDisabled />
+        <IconButton label="Sync Audience" isDisabled icon={<BiSync />} />
       </Flex>
     </Flex>
   );

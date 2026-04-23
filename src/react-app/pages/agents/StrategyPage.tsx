@@ -8,6 +8,7 @@ import DividedContent from "../../ui/content/DividedContent";
 import LabeledContent from "../../ui/content/LabeledContent";
 import Chip from "../../ui/feedback/Chip";
 import { BiTestTube } from "react-icons/bi";
+import IconButton from "../../ui/inputs/IconButton";
 
 export default function StrategyPage() {
   const { agentId, strategyId } = useParams();
@@ -108,6 +109,7 @@ function ContentHeader(props: {
             label={nextStrategy?.id}
           />
         </DividedContent>
+        <IconButton label="Edit Strategy" isDisabled />
       </Flex>
     </Flex>
   );
