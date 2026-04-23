@@ -15,6 +15,10 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
+        loader: async () => redirect("/agents"),
+      },
+      {
+        path: "/home",
         lazy: async () => ({
           Component: (await import("./pages/home/HomePage")).default,
         }),

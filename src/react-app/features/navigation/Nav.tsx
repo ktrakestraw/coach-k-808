@@ -21,10 +21,10 @@ export default function Nav() {
         py={4}
       >
         <Flex direction="column" gap={4} align="center">
-          <Link to="/">
+          <Link to="/home">
             <Box px={4}>
               <Text fontWeight="bold" fontSize="sm" color="white">
-                @CoachK808
+                Home
               </Text>
             </Box>
           </Link>
