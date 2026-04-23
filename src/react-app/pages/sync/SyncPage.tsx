@@ -1,4 +1,4 @@
-import { Button, Flex, Tabs, Text } from "@chakra-ui/react";
+import { Flex, Tabs, Text } from "@chakra-ui/react";
 import PageContent from "../../ui/content/PageContent";
 import { SYNCS } from "../../features/sync/mock-data";
 import {
@@ -12,6 +12,7 @@ import {
 import { Sync } from "../../features/sync/types";
 import DividedContent from "../../ui/content/DividedContent";
 import LabeledContent from "../../ui/content/LabeledContent";
+import Button from "../../ui/inputs/Button";
 
 export default function SyncPage() {
   const { syncId } = useParams();
@@ -54,15 +55,7 @@ function ContentHeader(props: { sync: Sync }) {
         </LabeledContent>
       </DividedContent>
 
-      <Button
-        cursor="not-allowed"
-        disabled
-        color="white"
-        bg="teal.800"
-        _hover={{ bg: "teal.700" }}
-      >
-        Run Sync
-      </Button>
+      <Button label="New Run" isDisabled />
     </Flex>
   );
 }

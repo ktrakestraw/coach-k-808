@@ -40,6 +40,7 @@ export function Strategies(props: { agent: Agent }) {
               borderTopWidth="1px"
               color="black"
               alignItems="center"
+              _hover={{ bg: "gray.50" }}
             >
               <Box flex={3}>
                 <Flex alignItems="center" gap={2}>

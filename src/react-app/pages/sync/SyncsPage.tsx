@@ -42,7 +42,13 @@ function Content() {
           to={`/syncs/${sync.id}`}
           style={{ display: "contents" }}
         >
-          <Flex key={sync.id} p={4} borderTopWidth="1px" color="black">
+          <Flex
+            key={sync.id}
+            p={4}
+            borderTopWidth="1px"
+            color="black"
+            _hover={{ bg: "gray.50" }}
+          >
             <Box flex={1}>{sync.id}</Box>
             <Box flex={2}>
               <Chip status={sync.status} text={sync.status} />

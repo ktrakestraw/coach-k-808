@@ -43,7 +43,13 @@ function Content() {
           to={`/agents/${agent.id}`}
           style={{ display: "contents" }}
         >
-          <Flex key={agent.id} p={4} borderTopWidth="1px" color="black">
+          <Flex
+            key={agent.id}
+            p={4}
+            borderTopWidth="1px"
+            color="black"
+            _hover={{ bg: "gray.50" }}
+          >
             <Box flex={1}>{agent.id}</Box>
             <Box flex={2}>
               <Chip status={agent.status} text={agent.status} />
